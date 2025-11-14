@@ -21,7 +21,7 @@ OpenCart is a PHP-based open-source e-commerce platform. This project includes t
 ## Links
 - **Test Cases (Google Sheet):** [OpenCart Test Cases](https://docs.google.com/spreadsheets/d/1tzFPJEXQcEGNru085rkDsuTDGj48oMK9okx7RpXEPeo/edit?gid=0#gid=0)  
 - **Bug Report (Google Sheet):** [OpenCart Bug Report](https://docs.google.com/spreadsheets/d/13bl5vGgL7Y4FEdSCbDWI6Ho4H_znczf-uAICk2kKyho/edit?gid=0#gid=0)  
-- **Jira Logged Issues:** [Jira Board](https://mohamedabdelhaq.atlassian.net/jira/software/projects/SCRUM/summary)  
+- **Jira Logged Issues:** [Jira Board](https://mohamedabdelhaq.atlassian.net/jira/software/projects/OP/summary)  
 
 ---
 
