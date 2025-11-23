@@ -10,9 +10,9 @@ public class LoginTests extends BaseTest {
     @Test
     public void testSuccessfulLogin(){
         Home home = new Home(driver);
-        home.clickOnLoginHeaderButton();
-        home.insertUsername("tester@grr.la");
-        home.insertPassword("testing");
+        home.clickOnLoginHeaderTab();
+        home.insertLoginUsername("tester@grr.la");
+        home.insertLoginPassword("testing");
         home.clickOnLoginButton();
 
         //Assertion
@@ -24,9 +24,9 @@ public class LoginTests extends BaseTest {
     @Test
     public void testInvalidLogin(){
         Home home = new Home(driver);
-        home.clickOnLoginHeaderButton();
-        home.insertUsername("testertester@grr.la");
-        home.insertPassword("testingtesting");
+        home.clickOnLoginHeaderTab();
+        home.insertLoginUsername("testertester@grr.la");
+        home.insertLoginPassword("testingtesting");
         home.clickOnLoginButton();
 
         //Assertion
