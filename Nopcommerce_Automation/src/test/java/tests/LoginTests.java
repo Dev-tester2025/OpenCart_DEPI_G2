@@ -29,7 +29,7 @@ public class LoginTests extends BaseTest {
         home.insertPassword("testingtesting");
         home.clickOnLoginButton();
 
-        //Alert
+        //Assertion
         String actualResult = home.getAlertText();
         String expectedResult = "User does not exist.";
         Assert.assertTrue(actualResult.contains(expectedResult));
