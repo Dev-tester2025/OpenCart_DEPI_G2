@@ -24,6 +24,7 @@ public class Home {
     private By passwordBoxLogin = By.xpath("//input[@id = \"loginpassword\"]");
     private By loginButton = By.xpath("//button[contains(text(), 'Log in')]");
     private By welcomeUser = By.cssSelector("#nameofuser");
+    private By logoutHeaderTab = By.xpath("//a[contains(text(), 'Log out')]");
 
     //Register
     private By signUpHeaderTab = By.xpath("//a[contains(text(), 'Sign up')]");
@@ -70,6 +71,10 @@ public class Home {
         driver.switchTo().alert().accept();
     }
 
+    public void clickOnLogoutHeaderTab(){
+        driver.findElement(logoutHeaderTab).click();
+    }
+
     //Register
     public void clickOnSignUpHeaderTab(){
         driver.findElement(signUpHeaderTab).click();
@@ -96,6 +101,6 @@ public class Home {
         return alert.getText();
     }
 
-    
+
 }
 

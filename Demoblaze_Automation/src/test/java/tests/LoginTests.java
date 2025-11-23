@@ -7,7 +7,7 @@ import pages.Home;
 
 public class LoginTests extends BaseTest {
 
-    @Test
+    @Test (priority = 1)
     public void testSuccessfulLogin(){
         Home home = new Home(driver);
         home.clickOnLoginHeaderTab();
@@ -19,9 +19,12 @@ public class LoginTests extends BaseTest {
         String actualResult = home.getWelcomeUserText();
         String expectedResult = "Welcome";
         Assert.assertTrue(actualResult.contains(expectedResult));
+
+        //Cleanup
+        home.clickOnLogoutHeaderTab();
     }
 
-    @Test
+    @Test (priority = 2)
     public void testInvalidLogin(){
         Home home = new Home(driver);
         home.clickOnLoginHeaderTab();
