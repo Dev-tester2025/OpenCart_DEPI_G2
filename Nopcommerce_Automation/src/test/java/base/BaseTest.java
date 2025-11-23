@@ -23,7 +23,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        // Open demoblaze website
+        // Open Demoblaze website
         driver.get("https://demoblaze.com/");
     }
 
