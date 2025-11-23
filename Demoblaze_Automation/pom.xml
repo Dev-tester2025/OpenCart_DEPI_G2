@@ -4,13 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.depi</groupId>
-    <artifactId>nopcommerce-automation</artifactId>
+    <artifactId>Demoblaze-automation</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <dependencies>
 
-        //Selenium
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -19,7 +18,6 @@
         </dependency>
 
 
-        //TestNG
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -28,7 +26,6 @@
             <scope>test</scope>
         </dependency>
 
-        //Github
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
