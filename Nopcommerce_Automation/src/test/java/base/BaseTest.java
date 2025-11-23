@@ -23,8 +23,8 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        // Open nopCommerce
-        driver.get("https://demo.nopcommerce.com/");
+        // Open demoblaze website
+        driver.get("https://demoblaze.com/");
     }
 
     public WebDriver getDriver() {
