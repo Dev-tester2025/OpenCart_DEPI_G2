@@ -32,6 +32,9 @@ public class Home {
     private By passwordBoxSignUp = By.cssSelector("#sign-password");
     private By signUpButton = By.xpath("//button[contains(text(), 'Sign up')]");
 
+    //Product
+    private By nexus6ProductLink = By.xpath("//a[contains(text(), 'Nexus 6')]");
+
 
 
     //ACTIONS
@@ -99,6 +102,12 @@ public class Home {
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         return alert.getText();
+    }
+
+    //Product
+    public Product clickOnNexus6ProductLink(){
+        driver.findElement(nexus6ProductLink).click();
+        return new Product(driver);
     }
 
 
