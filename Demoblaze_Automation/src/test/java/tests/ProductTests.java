@@ -23,10 +23,9 @@ public class ProductTests extends BaseTest {
         product.acceptAlert();
     }
 
-    //Pagination
+   //Pagination
     @Test
     public void TC_H4_verifyNextPrevPagination() {
-
         Product productPage = new Product(driver);
 
         String firstPageProduct = productPage.getFirstProductName();
@@ -34,8 +33,14 @@ public class ProductTests extends BaseTest {
         productPage.clickNextAndWaitForChange();
         String nextPageProduct = productPage.getFirstProductName();
 
-        Assert.assertNotEquals(firstPageProduct, nextPageProduct,
-                "Next button did not load new products.");
+        Assert.assertNotEquals(firstPageProduct, nextPageProduct, "Next button did not load new products.");
+
+        productPage.clickPreviousAndWaitForChange();
+        String prevPageProduct = productPage.getFirstProductName();
+
+        Assert.assertNotEquals(nextPageProduct, prevPageProduct, "Previous button did not load previous products.");
     }
+
 }
+
 
