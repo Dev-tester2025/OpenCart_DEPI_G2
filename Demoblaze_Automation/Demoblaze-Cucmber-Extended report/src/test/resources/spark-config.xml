@@ -1,0 +1,10 @@
+<Extent>
+    <Configuration>
+        <Theme>dark</Theme>
+        <Encoding>utf-8</Encoding>
+        <Protocol>HTTPS</Protocol>
+        <TimelineEnabled>true</TimelineEnabled>
+        <ReportName>Automation Test Report</ReportName>
+        <DocumentTitle>Automation Execution Report</DocumentTitle>
+    </Configuration>
+</Extent>
