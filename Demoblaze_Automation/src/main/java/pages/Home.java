@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
 
@@ -34,6 +35,26 @@ public class Home {
 
     //Product
     private By nexus6ProductLink = By.xpath("//a[contains(text(), 'Nexus 6')]");
+
+    //Navigation
+    private By homeTab = By.xpath("//a[contains(text(),'Home')]");
+    private By contactTab = By.xpath("//a[contains(text(),'Contact')]");
+    private By cartTab = By.xpath("//a[contains(text(),'Cart')]");
+    private By contactModalCloseButton = By.xpath("//div[@id='exampleModal']//button[@class='close']");
+
+    // Contact Modal
+    private By contactEmailField = By.xpath("//input[@id='recipient-email']");
+    private By contactNameField = By.xpath("//input[@id='recipient-name']");
+    private By contactMessageField = By.xpath("//textarea[@id='message-text']");
+    private By contactSendMessageButton = By.xpath("//button[contains(text(),'Send message')]");
+
+    // The modal container
+    private By contactModal = By.id("exampleModal");
+
+    // Carousel
+    private By carouselPrevButton = By.xpath("//a[contains(@class, 'carousel-control-prev')]");
+    private By carouselNextButton = By.xpath("//a[contains(@class, 'carousel-control-next')]");
+    public By activeCarouselImage = By.xpath("//div[contains(@class, 'carousel-item active')]//img");
 
 
 
@@ -113,5 +134,87 @@ public class Home {
 
     public void clickOnHomeTab() {
     }
+
+     //Navigation
+    public void clickHomeTab() {
+        driver.findElement(homeTab).click();
+    }
+
+    public void clickContactTab() {driver.findElement(contactTab).click();}
+
+
+    public void clickCartTab() {
+        driver.findElement(cartTab).click();
+    }
+
+    public void closeContactModal() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement closeBtn = wait.until(
+                ExpectedConditions.elementToBeClickable(contactModalCloseButton)
+        );
+
+        closeBtn.click();
+
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(
+                By.id("exampleModal")
+        ));
+    }
+
+    //Contact Modal
+
+    public void enterContactEmail(String email){
+        driver.findElement(contactEmailField).sendKeys(email);
+    }
+
+    public void enterContactName(String name){
+        driver.findElement(contactNameField).sendKeys(name);
+    }
+
+    public void enterContactMessage(String message){
+        driver.findElement(contactMessageField).sendKeys(message);
+    }
+
+    public void clickSendMessage(){
+        driver.findElement(contactSendMessageButton).click();
+    }
+
+    public void waitForContactModalToDisappear() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(contactModal));
+    }
+
+    public void submitContactForm(String email, String name, String message) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Wait modal to appear
+        wait.until(ExpectedConditions.visibilityOfElementLocated(contactEmailField));
+
+        enterContactEmail(email);
+        enterContactName(name);
+        enterContactMessage(message);
+
+        clickSendMessage();
+
+        // Wait alert
+        wait.until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
+    }
+
+    // Carousel
+    // click "Next" button
+    public void clickNextCarouselButton() {
+        driver.findElement(carouselNextButton).click();
+    }
+
+    //  click "Previous" button
+    public void clickPrevCarouselButton() {
+        driver.findElement(carouselPrevButton).click();
+    }
+    public String getActiveCarouselImageSrc() {
+        return driver.findElement(activeCarouselImage).getAttribute("src");
+    }
 }
+
 
