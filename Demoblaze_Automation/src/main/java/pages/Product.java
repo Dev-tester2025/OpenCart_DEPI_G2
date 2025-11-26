@@ -75,11 +75,16 @@ public class Product {
     }
 
 
-    public void clickPrevious() {
+    public void clickPreviousAndWaitForChange() {
+        String oldName = getFirstProductName();  
+
         scrollToPagination();
         wait.until(ExpectedConditions.elementToBeClickable(prevButton));
         driver.findElement(prevButton).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(productItems));
+
+        wait.until(ExpectedConditions.not(
+                ExpectedConditions.textToBe(productTitles, oldName)
+        ));
     }
     public String getFirstProductName() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(productTitles));
@@ -87,4 +92,5 @@ public class Product {
     }
     
 }
+
 
