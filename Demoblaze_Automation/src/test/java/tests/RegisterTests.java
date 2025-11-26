@@ -22,7 +22,6 @@ public class RegisterTests extends BaseTest {
 
         //Cleanup
         home.acceptAlert();
-        driver.navigate().refresh();
     }
 
     @Test (priority = 2)
@@ -40,7 +39,6 @@ public class RegisterTests extends BaseTest {
 
         //Cleanup
         home.acceptAlert();
-        driver.navigate().refresh();
     }
 
 
