@@ -1,13 +1,12 @@
 package pages;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
+import java.util.List;
 
 public class Home {
     WebDriver driver;
@@ -35,6 +34,30 @@ public class Home {
 
     //Product
     private By nexus6ProductLink = By.xpath("//a[contains(text(), 'Nexus 6')]");
+//categories
+    private By phoneProduct1= By.linkText("Nokia lumia 1520");
+    private By phoneProduct2= By.linkText("Samsung galaxy s6");
+    private By phoneProduct3= By.linkText("Nexus 6");
+    private By phoneProduct4= By.linkText("Samsung galaxy s7");
+    private By phoneProduct5= By.linkText("Iphone 6 32gb");
+    private By phoneProduct6= By.linkText("Sony xperia z5");
+
+
+    private By laptopProduct1= By.linkText("Sony vaio i5");
+    private By laptopProduct2= By.linkText("Sony vaio i7");
+    private By laptopProduct3= By.linkText("MacBook air");
+    private By laptopProduct4= By.linkText("Dell i7 8gb");
+    private By laptopProduct5= By.linkText("2017 Dell 15.6 Inch");
+    private By laptopProduct6= By.linkText("MacBook Pro");
+
+
+
+    private By monitorsProduct1= By.linkText("Apple monitor 24");
+    private By monitorsProduct2= By.linkText("ASUS Full HD");
+
+
+    private By productTitles = By.cssSelector(".card-title a");
+
 
     //Navigation
     private By homeTab = By.xpath("//a[contains(text(),'Home')]");
@@ -134,6 +157,37 @@ public class Home {
 
     public void clickOnHomeTab() {
     }
+
+    public boolean isProductDisplayed(String productName) {
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(productTitles));
+
+        List<WebElement> products = driver.findElements(productTitles);
+
+        for (int i = 0; i < products.size(); i++) {
+            try {
+                String title = products.get(i).getText().trim().toLowerCase();
+                if (title.contains(productName.toLowerCase())) {
+                    return true;
+                }
+            } catch (StaleElementReferenceException e) {
+
+                products = driver.findElements(productTitles);
+                String title = products.get(i).getText().trim().toLowerCase();
+                if (title.contains(productName.toLowerCase())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+
 
      //Navigation
     public void clickHomeTab() {
