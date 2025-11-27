@@ -7,7 +7,7 @@ Feature: Register Functionality
 
     Examples:
       | username                | password |
-      | testerforpassionsssss@grr.la | testing  |
+      | testerforpassionsandsuccess@grr.la | testing  |
 
   @NegativeScenario
   Scenario Outline: Invalid registration
