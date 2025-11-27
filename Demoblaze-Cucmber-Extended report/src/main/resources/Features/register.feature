@@ -9,7 +9,7 @@ Feature: Register Functionality
       | username                | password |
       | testerforpassionss@grr.la | testing  |
 
-  @InvalidScenario
+  @NegativeScenario
   Scenario Outline: Invalid registration
     Given the already existing user opens the homepage and clicks on Sign up header tab
     When the user enters invalid "<username>" and "<password>" then clicks on Sign up button

@@ -1,5 +1,5 @@
 Feature: Login functionality
-@HappyScenario
+  @HappyScenario
   Scenario: Successful login
     Given user is on home page
     When user clicks login tab
@@ -9,6 +9,7 @@ Feature: Login functionality
     Then welcome message should contain "Welcome"
     And user logs out
 
+  @NegativeScenario
   Scenario: Invalid login
     Given user is on home page
     When user clicks login tab
