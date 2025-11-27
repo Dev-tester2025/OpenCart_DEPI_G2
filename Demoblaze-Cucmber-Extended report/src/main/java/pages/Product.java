@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.bouncycastle.oer.its.template.ieee1609dot2.basetypes.Ieee1609Dot2BaseTypes.Duration;
+
 public class Product {
 
     WebDriver driver;
@@ -17,7 +19,7 @@ public class Product {
     // Constructor
     public Product(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15)); // Wait واحد ثابت
+        //this.wait = new WebDriverWait(driver, Duration.ofSeconds(15)); // Wait واحد ثابت
     }
 
     // Locators
@@ -25,17 +27,20 @@ public class Product {
 
     // Actions
     public void clickOnAddToCartButton() {
+        wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(20));
         WebElement addBtn = wait.until(ExpectedConditions.elementToBeClickable(addToCartButton));
         addBtn.click();
     }
 
     // Alert
     public String getProductAddedSuccessMessage() {
+        wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(20));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         return alert.getText();
     }
 
     public void acceptAlert() {
+        wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(20));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }

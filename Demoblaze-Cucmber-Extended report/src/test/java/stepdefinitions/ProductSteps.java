@@ -23,7 +23,6 @@ public class ProductSteps {
         product.clickOnAddToCartButton();
     }
 
-
     @Then("an alert with a success message appears {string}")
     public void anAlertWithASuccessMessageAppears(String expectedResult) {
         String actualResult = product.getProductAddedSuccessMessage();

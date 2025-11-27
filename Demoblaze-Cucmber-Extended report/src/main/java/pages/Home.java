@@ -14,6 +14,7 @@ public class Home {
 
     public Home(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
 
@@ -44,7 +45,7 @@ public class Home {
     }
 
     public void insertLoginUsername(String email){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(usernameBoxLogin));
         driver.findElement(usernameBoxLogin).sendKeys(email);
     }
@@ -58,13 +59,13 @@ public class Home {
     }
 
     public String getWelcomeUserText(){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(welcomeUser));
         return driver.findElement(welcomeUser).getText();
     }
 
     public String getAlertText(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         return alert.getText();
@@ -84,7 +85,7 @@ public class Home {
     }
 
     public void insertSignUpUsername(String email){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(usernameBoxSignUp));
         driver.findElement(usernameBoxSignUp).sendKeys(email);
     }
@@ -98,7 +99,7 @@ public class Home {
     }
 
     public String getSignUpSuccessAlert(){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         return alert.getText();
@@ -106,13 +107,13 @@ public class Home {
 
     //Product
     public Product clickOnNexus6ProductLink(){
+        driver.get("https://www.demoblaze.com/");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(nexus6ProductLink));
         driver.findElement(nexus6ProductLink).click();
         return new Product(driver);
     }
 
 
-    public void clickOnHomeTab() {
-    }
 
 }
 
