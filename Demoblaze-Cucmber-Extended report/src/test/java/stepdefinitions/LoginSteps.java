@@ -12,9 +12,8 @@ public class LoginSteps  {
 
     @Given("user is on home page")
     public void user_is_on_home_page() {
-        home = new Home(driver);
+        driver.get("https://www.demoblaze.com/");
     }
-
     @When("user clicks login tab")
     public void user_clicks_login_tab() {
         home.clickOnLoginHeaderTab();
