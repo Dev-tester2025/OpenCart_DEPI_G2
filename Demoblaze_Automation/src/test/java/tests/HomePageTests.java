@@ -1,9 +1,3 @@
-<<<<<<< HEAD:Demoblaze_Automation/Demoblaze_Automation_TestNG/src/test/java/tests/HomePageTests.java
-package tests;
-
-public class HomePageTests {
-}
-=======
 package tests;
 
 import base.BaseTest;
@@ -113,5 +107,3 @@ public class HomePageTests extends BaseTest {
 
 
 }
-
->>>>>>> edc5221168e6ac44528b5a646a45f58bef7fcc12:Demoblaze_Automation/src/test/java/tests/HomePageTests.java
