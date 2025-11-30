@@ -115,7 +115,7 @@ public class CartSteps {
         By deleteLink = By.xpath("//td[text()='" + productName + "']/following-sibling::td/a[text()='Delete']");
         driver.findElement(deleteLink).click();
         
-        // Wait for the row to disappear (copied from your original TC-C2 logic)
+        // Wait for the row to disappear
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.stalenessOf(itemRow));
     }
